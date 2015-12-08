@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>登录</title>
+    <link rel="stylesheet" href="http://7wy4jj.com2.z0.glb.qiniucdn.com/styles/vendor-c85134c2.css">
+    <link rel="stylesheet" href="http://7wy4jj.com2.z0.glb.qiniucdn.com/styles/main-e450c883.css">
+</head>
+<body>
+    <div class="container-fluid login-page">
+        <div class="row">
+            <div class="col-md-3 col-md-offset-8">
+                <div class="login-screen">
+                    <div class="login-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control login-field" value="" placeholder="用户名" id="login-name">
+                            <label class="login-field-icon fui-user" for="login-name"></label>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control login-field" value="" placeholder="密码" id="login-pass">
+                            <label class="login-field-icon fui-lock" for="login-pass"></label>
+                        </div>
+                        <a class="btn btn-primary btn-lg btn-block" id="login-submit">立即登录</a>
+                        <a class="hidden login-link" id=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="slogan">广告管理系统</h2>
+            </div>
+        </div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript">
+		$(function() {
+			$("#login-submit").click(function(){
+					$.post(
+						"/admin/login",
+						{username:$("#login-name").val(),password:$("#login-pass").val()},
+						function(result){
+							if(result){
+								window.location.href="/admin"
+							}else{
+							    alert("账户错误")
+							}
+						}
+					)
+				});
+		});
+    </script>
+</body>
+</html>

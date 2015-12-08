@@ -1,0 +1,36 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "express/express.d.ts": {
+      "commit": "38c6ccfde0e67ff10d7408e0ee8b7720b3f21d3b"
+    },
+    "node/node.d.ts": {
+      "commit": "38c6ccfde0e67ff10d7408e0ee8b7720b3f21d3b"
+    },
+    "serve-static/serve-static.d.ts": {
+      "commit": "38c6ccfde0e67ff10d7408e0ee8b7720b3f21d3b"
+    },
+    "mime/mime.d.ts": {
+      "commit": "38c6ccfde0e67ff10d7408e0ee8b7720b3f21d3b"
+    },
+    "body-parser/body-parser.d.ts": {
+      "commit": "957f67316813592e870ba5c82e0f1e780826fefc"
+    },
+    "mysql/mysql.d.ts": {
+      "commit": "73e4b46719dd2e425b4daf850d64cc5b1f753706"
+    },
+    "underscore/underscore.d.ts": {
+      "commit": "73e4b46719dd2e425b4daf850d64cc5b1f753706"
+    },
+    "bluebird/bluebird.d.ts": {
+      "commit": "73e4b46719dd2e425b4daf850d64cc5b1f753706"
+    },
+    "express-session/express-session.d.ts": {
+      "commit": "73e4b46719dd2e425b4daf850d64cc5b1f753706"
+    }
+  }
+}

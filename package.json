@@ -1,0 +1,22 @@
+{
+  "name": "ipfilter",
+  "version": "1.0.0",
+  "description": "ipfilter",
+  "main": "app.js",
+  "keywords": [
+    "ip_filter",
+    "typescript"
+  ],
+  "author": "JIE",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "*",
+    "connect-redis": "^2.4.1",
+    "ejs": "^2.3.3",
+    "express": "*",
+    "express-session": "^1.11.3",
+    "mysql": "*",
+    "underscore": "^1.8.3"
+  }
+}
