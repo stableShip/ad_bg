@@ -6,7 +6,6 @@ var AdDao = (function () {
     AdDao.addAdLog = function (data) {
         var conn = dbHelper.getDbConn();
         var sql = 'insert into ad_log set ?  ON DUPLICATE KEY UPDATE subcount=subcount+1';
-        // if(data.)
         return conn.queryAsync(sql, data).then(function (rows) {
             return true;
         }).finally(function () {

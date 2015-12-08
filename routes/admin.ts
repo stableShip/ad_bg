@@ -9,6 +9,7 @@ router
     .route("/admin")
     .get(function(req: express.Request, res: express.Response) {
         if (req.session.login) {
+            
             ad.getAdLogs().then(data=> {
                 res.send(data[0])
             })
