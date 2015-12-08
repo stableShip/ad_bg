@@ -3,8 +3,8 @@ var express = require("express");
 var router = express.Router();
 var ad = require("../modules/Ad");
 router.route("/ad").get(function (req, res) {
-    console.log(req.query);
     ad.addAdLog(req.query).then(function (data) {
+        res.sendStatus(200);
     });
 }).post(function (req, res) {
     ad.getAdLogs().then(function (data) {
