@@ -25,7 +25,9 @@ class DbHelper {
 
 
 
-
+     /**
+     * 获取数据库连接
+     */
     public static getDbConn(): any {
         var conn:mysql.IConnection = mysql.createConnection(DbHelper.getDbConf());
         return conn;

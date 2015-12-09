@@ -21,11 +21,11 @@ class Ad {
 
      /**
      * 获取广告日志信息
-     * @param 
+     * @param appName 应用名称
      * @returns {*}
      */
-    public static getAdLogs(name?:string) {
-        return AdDao.getAdLogs(name).then(result => {
+    public static getAdLogs(appName?:string) {
+        return AdDao.getAdLogs(appName).then(result => {
             if(result && result.length > 0){
                 return result[0];
             }

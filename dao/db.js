@@ -21,6 +21,9 @@ var DbHelper = (function () {
             console.log(e);
         }
     };
+    /**
+    * 获取数据库连接
+    */
     DbHelper.getDbConn = function () {
         var conn = mysql.createConnection(DbHelper.getDbConf());
         return conn;

@@ -10,18 +10,17 @@ var Ad = (function () {
      */
     Ad.addAdLog = function (ad) {
         ad.date = moment().format("YYYYMMDD");
-        console.log(ad.date);
         return AdDao.addAdLog(ad).then(function (result) {
             return result;
         });
     };
     /**
     * 获取广告日志信息
-    * @param
+    * @param appName 应用名称
     * @returns {*}
     */
-    Ad.getAdLogs = function (name) {
-        return AdDao.getAdLogs(name).then(function (result) {
+    Ad.getAdLogs = function (appName) {
+        return AdDao.getAdLogs(appName).then(function (result) {
             if (result && result.length > 0) {
                 return result[0];
             }

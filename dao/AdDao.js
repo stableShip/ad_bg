@@ -3,6 +3,10 @@ var dbHelper = require("./db");
 var AdDao = (function () {
     function AdDao() {
     }
+    /**
+     * 添加广告日志信息
+     * @param data:广告日志信息
+     */
     AdDao.addAdLog = function (data) {
         var conn = dbHelper.getDbConn();
         var sql = 'insert into ad_log set ?  ON DUPLICATE KEY UPDATE subcount=subcount+1';
@@ -14,9 +18,9 @@ var AdDao = (function () {
     };
     /**
      * 获取广告日志信息
-     * @param name 渠道信息
+     * @param appName 应用名称
      */
-    AdDao.getAdLogs = function (name) {
+    AdDao.getAdLogs = function (appName) {
         var conn = dbHelper.getDbConn();
         var sql = 'select * from ad_log where 1=1 ';
         if (name) {

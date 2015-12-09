@@ -29,8 +29,9 @@ app.use(session({
 //         db: 1
 //     }),
 //     secret: 'mEiriQAdmin_qianYun2015',
-//     cookie: { maxAge: 60000 }
+//     cookie: { maxAge: 600000 }
 // }));
+//监听路由
 app.use(ad);
 app.use(admin);
 app.set("port", 3000);

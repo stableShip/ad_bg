@@ -24,6 +24,7 @@ app.use(bodyParser.json({
     type: 'json'
 })); //解析json类型数据
 
+
 app.use(session({
    secret: 'mEiriQAdmin_qianYun2015',
    resave: false, // 强制session保存默认为true
@@ -41,7 +42,7 @@ app.use(session({
 //     cookie: { maxAge: 600000 }
 // }));
 
-
+//监听路由
 app.use(ad);
 app.use(admin);
 
