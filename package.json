@@ -16,6 +16,7 @@
     "ejs": "^2.3.3",
     "express": "*",
     "express-session": "^1.11.3",
+    "moment": "^2.10.6",
     "mysql": "*",
     "underscore": "^1.8.3"
   }

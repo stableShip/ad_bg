@@ -1,4 +1,6 @@
+/// <reference path="../typings/tsd.d.ts" />
 var AdDao = require("../dao/AdDao");
+var moment = require("moment");
 var Ad = (function () {
     function Ad() {
     }
@@ -7,6 +9,8 @@ var Ad = (function () {
      * @param ad 广告信息
      */
     Ad.addAdLog = function (ad) {
+        ad.date = moment().format("YYYYMMDD");
+        console.log(ad.date);
         return AdDao.addAdLog(ad).then(function (result) {
             return result;
         });
