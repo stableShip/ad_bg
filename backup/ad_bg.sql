@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50542
 File Encoding         : 65001
 
-Date: 2015-12-08 16:45:59
+Date: 2015-12-09 19:27:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,6 +27,7 @@ CREATE TABLE `ad_log` (
   `adstate` varchar(50) NOT NULL COMMENT '广告状态',
   `adtype` varchar(50) NOT NULL COMMENT '广告类型',
   `subcount` bigint(50) DEFAULT '1' COMMENT '发生次数',
+  `date` int(8) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `test` (`bundleid`,`name`,`platform`,`adstate`,`adtype`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `test` (`bundleid`,`name`,`platform`,`adstate`,`adtype`,`date`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
