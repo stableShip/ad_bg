@@ -3,10 +3,9 @@ var express = require("express");
 var router = express.Router();
 var ad = require("../modules/Ad");
 router.route("/admin").get(function (req, res) {
-    console.log("login:~~~~~~~~~~~~~~~~~~~~~~~", req.session.login);
     if (req.session.login) {
-        ad.getAdLogs("小红帽").then(function (data) {
-            res.send(data[0]);
+        ad.getAdLogs().then(function (data) {
+            res.render("admin/index", { data: data });
         });
     }
     else {

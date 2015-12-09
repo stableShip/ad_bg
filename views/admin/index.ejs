@@ -21,63 +21,78 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li id="nav-player" role="presentation" class="active"><a href="#whiteList" aria-controls="whiteList" role="tab" data-toggle="tab">白名单</a></li>
-                    <li id="nav-money" role="presentation"><a href="#blackList" aria-controls="blackList" role="tab" data-toggle="tab">黑名单</a></li>
-                    <li id="nav-announcement" role="presentation"><a href="#announcement" aria-controls="announcement" role="tab" data-toggle="tab">设置</a></li>
+                    <li id="nav-player" role="presentation" class="active"><a href="#whiteList" aria-controls="whiteList" role="tab" data-toggle="tab"></a></li>
+                    <li id="nav-money" role="presentation"><a href="#blackList" aria-controls="blackList" role="tab" data-toggle="tab"></a></li>
+                    <li id="nav-announcement" role="presentation"><a href="#announcement" aria-controls="announcement" role="tab" data-toggle="tab"></a></li>
                 </ul>
                 <p class="navbar-text navbar-right"><a class="navbar-link login-out" href="/admin/login">退出</a></p>
             </div>
         </div>
     </div>
-    <div class="container-fluid navbar-fixed-top page-nav">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <ul class="nav nav-pills">
-                </ul>
-            </div>
-        </div>
-    </div>
+    
 
     <div class="container-fluid">
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" aria-controls="whiteList" id="whiteList">
+            输入应用名称过滤 :　<input type="text" id="filter"></input><input type="button" value="提交"/>
                 <table class="table table-striped table-hover">
+                    <thead>
+                        <th>应用对应的唯一标示</th>
+                        <th>应用名称</th>
+                        <th title="应用统计平台">应用统计平台</th>
+                        <th title="广告类型">广告类型</th>
+                        <th title="广告状态">广告状态</th>
+                    </thead>
                     <tbody>
-					<% if(whiteList) { %>
-                        <% for(var i=0; i
-                        <whiteList.length; i++) { %>
-                            <tr>
-                                <td>
-                                    <%= whiteList[i] %>
-                                </td>
-								<td>
-                                  <button id="del" class="btn btn-primary" value=  <%= whiteList[i] %> >删除</button>
-                                </td>
-                            </tr>
-                            <% } %>
-					 <% }else { %>
-					 <td>白名单为空</td>
-					  <% } %>
-                    </tbody>
+					 <% for(var i=0; i<data.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= data[i].bundleid %>
+                            </td>
+                            <td>
+                                <%= data[i].name %>
+                            </td>
+                            <td>
+                                <% if (data[i].platform == 1) { %>
+                                    <%= "广点通" %>
+                                <% }else if(data[i].platform == 2) {%>
+                                    <%= "有米" %>
+                                <% }else if(data[i].platform == 3) {%>
+                                    <%= "inmobi" %>
+                                <% }else if(data[i].platform == 4) {%>
+                                    <%= "宾谷" %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (data[i].adtype == 1) { %>
+                                    <%= "插屏广告" %>
+                                <% }else if(data[i].adtype == 2) {%>
+                                    <%= "横幅广告" %>
+                                <% }else if(data[i].adtype == 3) {%>
+                                    <%= "视频广告" %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <% if (data[i].adstate === "agad") { %>
+                                    <%= "申请加载广告" %>
+                                <% }else if(data[i].adstate === "frad") {%>
+                                    <%= "失败返回广告" %>
+                                <% }else if(data[i].adstate === "srad") {%>
+                                    <%= "成功返回广告" %>
+                                <% }else if(data[i].adstate === "sdad") {%>
+                                    <%= "成功展示广告" %>
+                                <% }else if(data[i].adstate === "scad") {%>
+                                    <%= "成功点击广告" %>
+                                <% } %>
+                            </td>
+                            <td>
+                                <%= data[i].subcount %>
+                            </td>
+                        </tr>
+                    <% } %>
+                   </tbody>
                 </table>
             </div>
-            <div role="tabpanel" class="tab-pane" aria-controls="blackList" id="blackList">
-                <table class="table table-striped table-hover">
-                    <tbody>
-					<% if(blackList) { %>
-                        <% for(var i=0; i
-                        <blackList.length; i++) { %>
-                            <tr>
-                                <td>
-                                    <%= blackList[i] %>
-                                </td>
-                            </tr>
-                            <% } %>
-					 <% } %>
-                    </tbody>
-                </table>
-            </div>
-
             <div role="tabpanel" class="tab-pane" id="announcement">
                 <div class="alert alert-danger alert-dismissible hidden" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -108,29 +123,10 @@
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript">
 		$(function() {
-			$("#edit").click(function(){
-					var ip =$("#whiteList_edit").val()
-					if(ip){
-						$.get(
-							"/ip/whiteList",
-							{ip:ip},
-							function(result){
-								if(result){
-									window.location.href="/admin"
-								}else{
-									alert("网络错误，请稍候重试")
-								}
-							}
-						)
-					}else{
-						alert("请填写正确的ip")
-					}
-			});
-
-			$("#del").click(function(){
+			$("#filter").click(function(){
 					$.post(
-						"/ip/whiteList",
-						{ip:$(this).val()},
+						"/ad",
+						{name:$(this).val()},
 						function(result){
 							if(result){
 								window.location.href="/admin"
@@ -140,28 +136,7 @@
 						}
 					)
 			});
-
-		$("#blacklist_limit").click(function(){
-					limit = $("#limit").val()
-					if(!isNaN(limit)){
-						$.post(
-							"/ip",
-							{limit:limit},
-							function(result){
-								if(result){
-									//alert("success")
-									 location.reload();
-								}else{
-									alert("网络错误，请稍候重试")
-								}
-							}
-						)
-					}else{
-						alert("请填写正确的数字")
-					}
-			});
-		});
-
+        });
     </script>
 </body>
 

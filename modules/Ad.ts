@@ -23,7 +23,10 @@ class Ad {
      */
     public static getAdLogs(name?:string) {
         return AdDao.getAdLogs(name).then(result => {
-            return result;
+            if(result && result.length > 0){
+                return result[0];
+            }
+            return []
         });
     }
 }

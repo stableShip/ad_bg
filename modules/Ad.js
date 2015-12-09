@@ -18,7 +18,10 @@ var Ad = (function () {
     */
     Ad.getAdLogs = function (name) {
         return AdDao.getAdLogs(name).then(function (result) {
-            return result;
+            if (result && result.length > 0) {
+                return result[0];
+            }
+            return [];
         });
     };
     return Ad;

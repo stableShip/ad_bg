@@ -28,7 +28,7 @@ app.use(session({
    secret: 'mEiriQAdmin_qianYun2015',
    resave: false, // 强制session保存默认为true
    saveUninitialized: true,
-   cookie: { maxAge: 60000 } //一分钟
+   cookie: { maxAge: 600000 } //一分钟
 }));
 
 // redis session
@@ -38,7 +38,7 @@ app.use(session({
 //         db: 1
 //     }),
 //     secret: 'mEiriQAdmin_qianYun2015',
-//     cookie: { maxAge: 60000 }
+//     cookie: { maxAge: 600000 }
 // }));
 
 

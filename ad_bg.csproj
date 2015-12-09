@@ -26,6 +26,7 @@
     <TypeScriptCompile Include="configs\configs.ts" />
     <TypeScriptCompile Include="dao\db.ts" />
     <TypeScriptCompile Include="routes\admin.ts" />
+    <TypeScriptCompile Include="routes\ad.ts" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="doc\" />

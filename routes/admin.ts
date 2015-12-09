@@ -9,9 +9,8 @@ router
     .route("/admin")
     .get(function(req: express.Request, res: express.Response) {
         if (req.session.login) {
-            
             ad.getAdLogs().then(data=> {
-                res.send(data[0])
+                res.render("admin/index", { data: data })
             })
         } else {
             res.redirect("admin/login");
