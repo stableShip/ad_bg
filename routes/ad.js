@@ -4,7 +4,7 @@ var router = express.Router();
 var ad = require("../modules/Ad");
 router.route("/ad").get(function (req, res) {
     ad.addAdLog(req.query).then(function (data) {
-        res.sendStatus(200);
+        res.send();
     });
 }).post(function (req, res) {
     ad.getAdLogs().then(function (data) {

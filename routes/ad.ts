@@ -9,7 +9,7 @@ router
     .route("/ad")
     .get(function(req: express.Request, res: express.Response){
         ad.addAdLog(req.query).then(data=>{
-            res.sendStatus(200)
+            res.send();
         });
     })
     .post(function(req: express.Request, res: express.Response) {
