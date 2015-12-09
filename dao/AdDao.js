@@ -20,7 +20,7 @@ var AdDao = (function () {
         var conn = dbHelper.getDbConn();
         var sql = 'select * from ad_log where 1=1 ';
         if (name) {
-            sql += " and name = '" + name + "'";
+            sql += " and name like '%" + name + "%'";
         }
         return conn.queryAsync(sql).then(function (rows) {
             if (rows.length > 0 && rows[0].length > 0) {
