@@ -27,8 +27,8 @@ class AdDao {
 
         var conn = dbHelper.getDbConn();
         var sql: string = 'select * from ad_log where 1=1 ';
-        if (name) {
-            sql += " and name like '%" + name + "%'"
+        if (appName) {
+            sql += " and name like '%" + appName + "%'"
         }
         return conn.queryAsync(sql).then(function(rows) {
             if (rows.length > 0 && rows[0].length > 0) {
