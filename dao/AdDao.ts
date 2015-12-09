@@ -3,7 +3,7 @@
 import dbHelper = require("./db");
 import mysql = require('mysql');
 import _ = require("underscore");
-
+import moment = require("moment");
 class AdDao {
     /**
      * 添加广告日志信息
@@ -23,13 +23,15 @@ class AdDao {
      * 获取广告日志信息
      * @param appName 应用名称
      */
-    public static getAdLogs(appName?: string) {
+    public static getAdLogs(appName?: string, date: string=moment().format("YYYYMMDD")) {
 
         var conn = dbHelper.getDbConn();
         var sql: string = 'select * from ad_log where 1=1 ';
         if (appName) {
             sql += " and name like '%" + appName + "%'"
         }
+        sql += " and date = " + date;
+        console.log(sql)
         return conn.queryAsync(sql).then(function(rows) {
             if (rows.length > 0 && rows[0].length > 0) {
                 return rows
