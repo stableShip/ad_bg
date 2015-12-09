@@ -34,7 +34,7 @@
     <div class="container-fluid">
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" aria-controls="whiteList" id="whiteList">
-            输入应用名称过滤 :　<input type="text" id="filter"></input><input type="button" value="提交"/>
+            输入应用名称过滤 :　<input type="text" id="name" ></input><input type="button" value="提交" id="filter"/>
                 <table class="table table-striped table-hover">
                     <thead>
                         <th>应用对应的唯一标示</th>
@@ -61,6 +61,8 @@
                                     <%= "inmobi" %>
                                 <% }else if(data[i].platform == 4) {%>
                                     <%= "宾谷" %>
+                                <% }else{ %>
+                                    <%= data[i].platform %>
                                 <% } %>
                             </td>
                             <td>
@@ -70,6 +72,8 @@
                                     <%= "横幅广告" %>
                                 <% }else if(data[i].adtype == 3) {%>
                                     <%= "视频广告" %>
+                                <% }else{ %>
+                                    <%= data[i].adtype %>
                                 <% } %>
                             </td>
                             <td>
@@ -83,6 +87,8 @@
                                     <%= "成功展示广告" %>
                                 <% }else if(data[i].adstate === "scad") {%>
                                     <%= "成功点击广告" %>
+                                <% }else{ %>
+                                    <%= data[i].adstate %>
                                 <% } %>
                             </td>
                             <td>
@@ -124,17 +130,7 @@
     <script type="text/javascript">
 		$(function() {
 			$("#filter").click(function(){
-					$.post(
-						"/ad",
-						{name:$(this).val()},
-						function(result){
-							if(result){
-								window.location.href="/admin"
-							}else{
-							    alert("网络错误，请稍候重试")
-							}
-						}
-					)
+                    window.location.href="/admin?name="+$("#name").val()
 			});
         });
     </script>

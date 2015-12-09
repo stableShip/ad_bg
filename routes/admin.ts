@@ -9,7 +9,7 @@ router
     .route("/admin")
     .get(function(req: express.Request, res: express.Response) {
         if (req.session.login) {
-            ad.getAdLogs().then(data=> {
+            ad.getAdLogs(req.query.name).then(data=> {
                 res.render("admin/index", { data: data })
             })
         } else {

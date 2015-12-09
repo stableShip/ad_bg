@@ -21,7 +21,7 @@ class AdDao {
      */
     public static getAdLogs(name?:string) {
         
-        var conn= dbHelper.getDbConn();
+        var conn = dbHelper.getDbConn();
         var sql: string = 'select * from ad_log where 1=1 ';
         if(name){
             sql += " and name = '"+ name +"'"

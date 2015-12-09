@@ -4,7 +4,7 @@ var router = express.Router();
 var ad = require("../modules/Ad");
 router.route("/admin").get(function (req, res) {
     if (req.session.login) {
-        ad.getAdLogs().then(function (data) {
+        ad.getAdLogs(req.query.name).then(function (data) {
             res.render("admin/index", { data: data });
         });
     }
