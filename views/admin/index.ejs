@@ -80,6 +80,8 @@
                             <td>
                                 <% if (data[i].adstate === "agad") { %>
                                     <%= "申请加载广告" %>
+                                <% }else if(data[i].adstate === "fdad") {%>
+                                    <%= "失败显示广告" %>
                                 <% }else if(data[i].adstate === "frad") {%>
                                     <%= "失败返回广告" %>
                                 <% }else if(data[i].adstate === "srad") {%>
