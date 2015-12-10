@@ -28,7 +28,7 @@ var AdDao = (function () {
         if (appName) {
             sql += " and name like '%" + appName + "%'";
         }
-        sql += " and date = " + date;
+        sql += " and date = '" + date + "'";
         console.log(sql);
         return conn.queryAsync(sql).then(function (rows) {
             if (rows.length > 0 && rows[0].length > 0) {
