@@ -7,13 +7,13 @@ import ad = require("../modules/Ad")
 
 router
     .route("/ad")
-    .get(function(req: express.Request, res: express.Response){
-        ad.addAdLog(req.query).then(data=>{
+    .get(function(req: express.Request, res: express.Response) {
+        ad.addAdLog(req.query).then(data=> {
             res.send();
         });
     })
     .post(function(req: express.Request, res: express.Response) {
-        ad.getAdLogs().then(data=>{
+        ad.getAdLogs().then(data=> {
             return res.json(data)
         });
     });
