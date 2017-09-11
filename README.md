@@ -1,4 +1,6 @@
 # visual_code_with_typescript
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/stableShip/ad_bg.svg)](https://greenkeeper.io/)
 demo of visual_code_with_typescript
 
 ##安装相关的依赖
