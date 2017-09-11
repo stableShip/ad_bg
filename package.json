@@ -10,9 +10,9 @@
   "author": "JIE",
   "license": "MIT",
   "dependencies": {
-    "bluebird": "^2.9.34",
+    "bluebird": "^3.5.0",
     "body-parser": "*",
-    "connect-redis": "^2.4.1",
+    "connect-redis": "^3.3.0",
     "ejs": "^2.3.3",
     "express": "*",
     "express-session": "^1.11.3",
